@@ -1,5 +1,5 @@
 <?php
-  require "global.php" ;	
+	require "global.php" ;	
 	$method = isset ($_GET['method'])?($_GET['method']):null;
 	switch ($method)
 		{
@@ -24,7 +24,7 @@
 				$filename_u = "upload/".$filename;
 				$fp = fopen($filename_u,'r');
 				$filecontent = fread ($fp, filesize ($filename_u));					
-				$filecontent_new = $_POST['filecontent'];
+				$filecontent_new = isset ($_POST['filecontent'])?$_POST['filecontent']:null;
 				$filecontentbox = isset ($_POST['submit'])?$filecontent_new:$filecontent;
 				fclose($fp);
 				EditForm ($filecontentbox);
